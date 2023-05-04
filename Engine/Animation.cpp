@@ -21,6 +21,11 @@ void Animation::Draw(const Vei2& pos, const RectI& clip, Graphics& gfx) const
 	gfx.DrawSprite(pos.x, pos.y, frames[iCurFrame],clip, sprite, chroma);
 }
 
+void Animation::DrawColor(const Vei2& pos, Graphics& gfx, Color c) const
+{
+	gfx.DrawSpriteSubstitute(pos.x, pos.y, c, frames[iCurFrame], sprite, chroma);
+}
+
 void Animation::Update(float dt)
 {
 	curFrameTime += dt;

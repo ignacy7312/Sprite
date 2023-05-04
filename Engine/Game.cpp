@@ -38,6 +38,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	while (!wnd.kbd.KeyIsEmpty()) {
+		const auto e = wnd.kbd.ReadKey();
+		if (e.IsPress() && e.GetCode() == VK_SPACE) {
+			link.ActivateEffect();
+		}
+	}
 	Vec2 dir = { 0.0f, 0.0f };
 	if (wnd.kbd.KeyIsPressed(VK_UP)) {
 		dir.y -= 1.0f;
@@ -55,4 +61,5 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	link.Draw(gfx);
+	font.DrawText("u want sum\nsucc?", wnd.mouse.GetPos(), Colors::White, gfx);
 }
