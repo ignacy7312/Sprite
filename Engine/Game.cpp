@@ -60,6 +60,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	link.Draw(gfx);
 	font.DrawText("u want sum\nsucc?", wnd.mouse.GetPos(), Colors::White, gfx);
+	link.Draw(gfx);
 }
